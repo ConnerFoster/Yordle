@@ -1,0 +1,14 @@
+.header {
+    text-align: center;
+}
+.board {
+    margin-top: 10rem;
+}
+
+.tiles {
+    
+    outline: 1px solid black;
+    height: 4rem;
+    max-width: 4rem;
+    margin: .25rem;
+}
