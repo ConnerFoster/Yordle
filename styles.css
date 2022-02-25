@@ -2,13 +2,20 @@
     text-align: center;
 }
 .board {
-    margin-top: 10rem;
+    margin-top: 3rem;
 }
 
 .tiles {
-    
     outline: 1px solid black;
     height: 4rem;
     max-width: 4rem;
     margin: .25rem;
+}
+.keyboard {
+    margin-top: 3rem;
+}
+
+.btn {
+    max-width: 2.5rem;
+    margin: .25rem
 }
