@@ -19,3 +19,9 @@
     max-width: 2.5rem;
     margin: .25rem
 }
+.green {
+    background-color: green;
+}
+.yellow {
+    background-color: yellow;
+}
