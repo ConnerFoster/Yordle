@@ -11,7 +11,7 @@ body {
 }
 
 .tiles {
-  outline: 1px solid white;
+  outline: 1px solid gray;
   height: 4rem;
   max-width: 4rem;
   margin: 0.25rem;

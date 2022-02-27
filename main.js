@@ -7,12 +7,15 @@ let targetWord = getRandomWord();
 let row = 0;
 let char;
 
+let currentRow = 0;
+
 /* Still to do:
-add keyboard functionality
+Make Modal for when game is over
 add play again option
-dark mode
 make on-screen keyboard look better
 make on-screen keyboard keys color change too
+add full word lists 
+keyboard right size on mobile
 */
 
 function input(value) {
@@ -27,10 +30,11 @@ function input(value) {
 
 function del() {
   word = word.slice(0, -1);
-  if (currentSquare % 5 != 0) {
-    currentSquare--;
-    tiles[currentSquare].textContent = ""; //need to find a way to make this work when they get the word wrong and still can edit the last word
+  currentSquare--;
+  if (currentSquare < currentRow * 5) {
+    currentSquare = currentRow * 5;
   }
+  tiles[currentSquare].textContent = "";
 }
 
 function ent() {
@@ -50,7 +54,7 @@ function wordCheck() {
     }
     alert("You Win!");
     location.reload();
-  } else if (row < 25) {
+  } else {
     for (let i = 0; i < 5; i++) {
       if (word[i] == targetWord[i]) {
         tiles[row + i].classList.add("green");
@@ -62,6 +66,10 @@ function wordCheck() {
     }
     row += 5;
     word = "";
+    currentRow++;
+  }
+  if (row == 30) {
+    console.log("The Word was : " + targetWord);
   }
 }
 
@@ -81,3 +89,5 @@ document.addEventListener("keydown", (e) => {
     console.log("Error w/ Keyboard Input");
   }
 });
+
+function gameOver(result) {}
