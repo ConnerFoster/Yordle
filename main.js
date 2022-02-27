@@ -5,6 +5,7 @@ let tiles = document.getElementsByClassName("tiles");
 let keys = document.getElementsByClassName("btn");
 let targetWord = getRandomWord();
 let row = 0;
+let char;
 
 /* Still to do:
 add keyboard functionality
@@ -26,8 +27,10 @@ function input(value) {
 
 function del() {
   word = word.slice(0, -1);
-  currentSquare--;
-  tiles[currentSquare].textContent = "";
+  if (currentSquare % 5 != 0) {
+    currentSquare--;
+    tiles[currentSquare].textContent = ""; //need to find a way to make this work when they get the word wrong and still can edit the last word
+  }
 }
 
 function ent() {
@@ -65,3 +68,16 @@ function wordCheck() {
 function getRandomWord() {
   return wordList[Math.floor(Math.random() * wordList.length)];
 }
+
+document.addEventListener("keydown", (e) => {
+  char = e.key;
+  if (char.length === 1 && /[a-zA-Z]/.test(char)) {
+    input(char.toUpperCase());
+  } else if (char == "Enter") {
+    ent();
+  } else if (char == "Backspace") {
+    del();
+  } else {
+    console.log("Error w/ Keyboard Input");
+  }
+});
