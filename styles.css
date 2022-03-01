@@ -17,11 +17,11 @@ hr {
 
 .tiles {
   outline: 1px solid gray;
-  height: 4rem;
-  max-width: 4rem;
+  height: 3.5rem;
+  max-width: 3.5rem;
   margin: 0.25rem;
   font-family: "IBM Plex Sans", sans-serif;
-  font-size: 2.5rem;
+  font-size: 2rem;
   text-align: center;
   position: relative;
   top: 50%;
@@ -35,10 +35,24 @@ hr {
 }
 
 .btn {
-  max-width: 4.5rem;
-  margin: 0.25rem;
+  max-width: 3rem;
+  height: 3rem;
+  margin: 0.2rem;
   font-family: "IBM Plex Sans", sans-serif;
   background-color: gray;
+}
+@media only screen and (max-width: 600px) {
+  .btn {
+    max-width: 2.25rem;
+    font-size: 0.75rem;
+    margin: 0.1rem;
+  }
+  .ent-del {
+    max-width: 3rem;
+  }
+}
+.ent-del {
+  max-width: 4.7rem;
 }
 .green {
   background-color: #1e5128;
