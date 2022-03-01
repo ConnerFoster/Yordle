@@ -15261,7 +15261,6 @@ let targetWordList = [
 ];
 
 let word = "";
-let wordList2 = ["HELLO", "CRANE", "GHOST", "CHECK", "BLACK", "DOCKS"];
 let currentSquare = 0;
 const tiles = document.getElementsByClassName("tiles");
 const keys = document.getElementsByClassName("btn");
@@ -15270,15 +15269,17 @@ let targetWord = getRandomWord();
 let row = 0;
 let char;
 let currentRow = 0;
+let modalActive = false;
 
 /* Still to do:
 Make Modal look better
 make play again not just reload page, be able to keep track of wins - losses
-make on-screen keyboard look better
-add full word lists 
-keyboard right size on mobile
-wordList is now all lower case so we need to standardize that
 pressing enter during modal screen "too short a word"
+add how to play modal
+modal looks bad on mobile
+maybe modal transition
+bootstrap buttons look weird when clicked
+focus modal 
 */
 
 function input(value) {
@@ -15316,6 +15317,7 @@ function wordCheck() {
       tiles[row + i].classList.add("green");
     }
     modal.style.display = "flex";
+    modalActive = true;
   } else {
     for (let i = 0; i < 5; i++) {
       if (word[i] == targetWord[i]) {
@@ -15335,9 +15337,11 @@ function wordCheck() {
   }
   if (row == 30) {
     console.log("The Word was : " + targetWord);
-    document.getElementById("modal-main-text").textContent =
-      "You Lost!🙁 The word was: " + targetWord;
+    document.getElementById("modal-main-text").textContent = "You Lost!🙁";
+    document.getElementById("modal-secondary-text").textContent =
+      "The word was: " + targetWord;
     modal.style.display = "flex";
+    modalActive = true;
   }
 }
 
@@ -15351,7 +15355,7 @@ document.addEventListener("keydown", (e) => {
   char = e.key;
   if (char.length === 1 && /[a-zA-Z]/.test(char)) {
     input(char.toUpperCase());
-  } else if (char == "Enter") {
+  } else if (char == "Enter" && modalActive == false) {
     ent();
   } else if (char == "Backspace") {
     del();
