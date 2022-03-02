@@ -15265,6 +15265,8 @@ let currentSquare = 0;
 const tiles = document.getElementsByClassName("tiles");
 const keys = document.getElementsByClassName("btn");
 const modal = document.getElementById("modal-container");
+const warningDiv = document.getElementById("warning");
+const warningText = document.getElementById("warning-text");
 let targetWord = getRandomWord();
 let row = 0;
 let char;
@@ -15303,9 +15305,11 @@ function del() {
 
 function ent() {
   if (word.length < 5) {
-    alert("Too short a word");
+    //alert("Too short a word");
+    giveWarning("Not enough letters..");
   } else if (!wordList.includes(word.toLowerCase())) {
-    alert("Not in word list");
+    //alert("Not in word list");
+    giveWarning("Not in word list..");
   } else {
     wordCheck();
   }
@@ -15389,3 +15393,13 @@ document.getElementById("close-main-modal").addEventListener("click", () => {
 document.getElementById("play-again").addEventListener("click", () => {
   location.reload();
 });
+
+function giveWarning(text) {
+  warningText.textContent = text;
+  warningDiv.classList.remove("invisible");
+  warningDiv.classList.add("fadeInAndOut");
+  setTimeout(function () {
+    warningDiv.classList.add("invisible");
+    warningDiv.classList.remove("fadeInAndOut");
+  }, 1750);
+}

@@ -9,7 +9,7 @@ body {
   margin-top: 1rem;
 }
 .board {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 hr {
@@ -33,7 +33,7 @@ hr {
   padding-top: 0.15rem;
 }
 .keyboard {
-  margin-top: 0rem;
+  margin-top: 1rem;
 }
 
 .btn {
@@ -67,6 +67,63 @@ hr {
 }
 .gray {
   background-color: rgb(51, 50, 50);
+}
+
+.warning {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.warning-text {
+  text-align: center;
+  color: black;
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 1%;
+}
+#warning-text {
+  font-size: 1.2rem;
+}
+
+.fadeInAndOut {
+  -webkit-animation: fadeinout 1.75s linear forwards;
+  animation: fadeinout 1.75s linear forwards;
+}
+
+@-webkit-keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .modal-container {
