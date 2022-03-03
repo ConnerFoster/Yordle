@@ -15276,11 +15276,8 @@ let modalActive = false;
 /* Still to do:
 Make Modal look better
 make play again not just reload page, be able to keep track of wins - losses
-pressing enter during modal screen "too short a word"
 add how to play modal
-modal looks bad on mobile
 maybe modal transition
-bootstrap buttons look weird when clicked
 focus modal 
 */
 
@@ -15289,6 +15286,7 @@ function input(value) {
     word += value;
     tiles[currentSquare].textContent = value;
     currentSquare++;
+    console.log(value);
   }
 
   console.log(word);
@@ -15320,8 +15318,10 @@ function wordCheck() {
     for (let i = 0; i < 5; i++) {
       tiles[row + i].classList.add("green");
     }
-    modal.style.display = "flex";
-    modalActive = true;
+    setTimeout(function () {
+      modal.style.display = "flex";
+      modalActive = true;
+    }, 1000);
   } else {
     for (let i = 0; i < 5; i++) {
       if (word[i] == targetWord[i]) {
@@ -15357,9 +15357,11 @@ function getRandomWord() {
 
 document.addEventListener("keydown", (e) => {
   char = e.key;
+  console.log(char);
   if (char.length === 1 && /[a-zA-Z]/.test(char)) {
     input(char.toUpperCase());
   } else if (char == "Enter" && modalActive == false) {
+    e.preventDefault(); //Stops enter from re-clicking buttons
     ent();
   } else if (char == "Backspace") {
     del();
@@ -15401,5 +15403,7 @@ function giveWarning(text) {
   setTimeout(function () {
     warningDiv.classList.add("invisible");
     warningDiv.classList.remove("fadeInAndOut");
-  }, 3200);
+  }, 2000);
 }
+
+console.log(targetWord);
