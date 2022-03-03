@@ -15306,10 +15306,10 @@ function del() {
 function ent() {
   if (word.length < 5) {
     //alert("Too short a word");
-    giveWarning("Not enough letters..");
+    giveWarning("Not enough letters");
   } else if (!wordList.includes(word.toLowerCase())) {
     //alert("Not in word list");
-    giveWarning("Not in word list..");
+    giveWarning("Not in word list");
   } else {
     wordCheck();
   }
@@ -15401,5 +15401,5 @@ function giveWarning(text) {
   setTimeout(function () {
     warningDiv.classList.add("invisible");
     warningDiv.classList.remove("fadeInAndOut");
-  }, 1750);
+  }, 3200);
 }

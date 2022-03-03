@@ -33,7 +33,7 @@ hr {
   padding-top: 0.15rem;
 }
 .keyboard {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 .btn {
@@ -57,7 +57,7 @@ hr {
   max-width: 4.7rem;
 }
 .green {
-  background-color: #1e5128;
+  background-color: #538d4e;
 }
 .yellow {
   background-color: #b59f3b;
@@ -66,13 +66,24 @@ hr {
   font-family: "IBM Plex Sans", sans-serif;
 }
 .gray {
-  background-color: rgb(51, 50, 50);
+  background-color: #3a3a3c;
 }
 
 .warning {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top:0;
+  bottom: 0;
+  text-align: center;
+  width: 15rem;
+  z-index: 1;
 }
 
 .warning-text {
@@ -88,8 +99,8 @@ hr {
 }
 
 .fadeInAndOut {
-  -webkit-animation: fadeinout 1.75s linear forwards;
-  animation: fadeinout 1.75s linear forwards;
+  -webkit-animation: fadeinout 3s linear forwards;
+  animation: fadeinout 3s linear forwards;
 }
 
 @-webkit-keyframes fadeinout {
@@ -97,7 +108,7 @@ hr {
   100% {
     opacity: 0;
   }
-  50% {
+  50%, 75% {
     opacity: 1;
   }
 }
@@ -107,23 +118,13 @@ hr {
   100% {
     opacity: 0;
   }
-  50% {
+  50%, 75% {
     opacity: 1;
   }
 }
 
 .invisible {
   visibility: hidden;
-}
-
-@keyframes fade {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
 }
 
 .modal-container {
@@ -141,8 +142,8 @@ hr {
 .my-modal {
   color: white;
   background-color: #2b2a2a;
-  height: 25vh;
-  width: 25vw;
+  height: 25rem;
+  width: 25rem;
   margin-bottom: 15rem;
   padding-top: 3rem;
   text-align: center;
