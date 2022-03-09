@@ -15265,6 +15265,7 @@ let currentSquare = 0;
 const tiles = document.getElementsByClassName("tiles");
 const keys = document.getElementsByClassName("btn");
 const modal = document.getElementById("modal-container");
+const modalContent = document.getElementById("my-modal");
 const warningDiv = document.getElementById("warning");
 const warningText = document.getElementById("warning-text");
 let targetWord = getRandomWord();
@@ -15272,6 +15273,7 @@ let row = 0;
 let char;
 let currentRow = 0;
 let modalActive = false;
+const confetti = window.confetti;
 
 /* Still to do:
 Make Modal look better
@@ -15317,9 +15319,11 @@ function wordCheck() {
   if (word == targetWord) {
     for (let i = 0; i < 5; i++) {
       tiles[row + i].classList.add("green");
+      confetti();
     }
     setTimeout(function () {
       modal.style.display = "flex";
+      modalContent.style.height = "15rem";
       modalActive = true;
     }, 1000);
   } else {
