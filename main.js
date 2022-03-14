@@ -15268,6 +15268,7 @@ const modal = document.getElementById("modal-container");
 const modalContent = document.getElementById("my-modal");
 const warningDiv = document.getElementById("warning");
 const warningText = document.getElementById("warning-text");
+const howPlayBtn = document.getElementById("quest");
 let targetWord = getRandomWord();
 let row = 0;
 let char;
@@ -15398,6 +15399,14 @@ document.getElementById("close-main-modal").addEventListener("click", () => {
 
 document.getElementById("play-again").addEventListener("click", () => {
   location.reload();
+});
+
+howPlayBtn.addEventListener("click", () => {
+  document.getElementById("how-to-play").style.display = "flex";
+});
+
+document.getElementById("how-exit-button").addEventListener("click", () => {
+  document.getElementById("how-to-play").style.display = "none";
 });
 
 function giveWarning(text) {

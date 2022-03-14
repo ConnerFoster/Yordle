@@ -7,6 +7,13 @@ body {
   text-align: center;
   color: white;
   margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+
+  align-items: center;
+}
+.box {
+  width: 100px;
 }
 .board {
   margin-top: 2.5rem;
@@ -110,6 +117,38 @@ hr {
   animation: fadeinout 2s linear forwards;
 }
 
+.fadeDown {
+  -webkit-animation: fadeInDown 1s;
+  animation: fadeInDown 1s;
+}
+
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-10rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+}
+
 @-webkit-keyframes fadeinout {
   0%,
   100% {
@@ -144,9 +183,10 @@ a:hover {
 
 ion-icon {
   font-size: 40px;
-  position: absolute;
-  left: 65%;
-  top: 1.75%;
+  /*position: absolute;
+  left: 75%;
+  top: 1.75%;*/
+  width: 40px;
 }
 
 .invisible {
@@ -184,4 +224,26 @@ ion-icon {
   margin-top: 3.5rem;
   max-width: 8rem;
   max-height: 5rem;
+}
+
+#how-exit-button {
+  padding-left: 95%;
+  cursor: pointer;
+}
+
+.how-modal {
+  color: white;
+  /*background-color: #2b2a2a;*/
+  background-color: #242524;
+  padding: 2rem;
+  margin-bottom: 15rem;
+  text-align: center;
+  border-radius: 1%;
+  -webkit-box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.3);
+  padding-bottom: 5rem;
+  text-align: left;
+}
+.how-modal h1 {
+  text-align: center;
 }

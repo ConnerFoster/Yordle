@@ -14,10 +14,11 @@
   </head>
   <body>
     <section class="container header">
-      <div class="how">
-       <a href="#"><ion-icon id="quest" name="help-circle-outline"></ion-icon></a>
-      </div>
-      <h1 class="display-5">YORDLE</h1>
+      <div class="box"><a href="#"><ion-icon name="reorder-three-outline"></ion-icon></a></div>
+      <div><h1 class="display-5">YORDLE</h1></div>
+      <div class="box"><a href="#"><ion-icon id="quest" name="help-circle-outline"></ion-icon></a></div>
+      
+      
     </section>
     <hr />
 
@@ -288,6 +289,20 @@
         <h2 id="modal-secondary-text"></h2>
         <button id="play-again" class="btn btn-secondary">Play Again</button>
         <button id="close-main-modal" class="btn btn-secondary">Close</button>
+      </div>
+    </section>
+
+    <section id="how-to-play" class="modal-container">
+      <div id="how-to-modal" class="how-modal">
+        <h3 id="how-exit-button">&#x2715;</h3>
+        <h1>How to Play</h1>
+        <hr>
+        <h4>You have 6 tries to guess the word.</h3>
+        <h4>Each guess will reveal clues:</h3>
+        <h4>If a letter is highlighted green, it is in the target word and in the correct space.</h3>
+        <h4>If a letter is highlighted yellow, it is in the target word but in the incorrect space.</h3>
+        <h4>If a letter is highlighted gray, it is not in the word.</h3>
+        <h2 id="how-secondary-text"></h2>
       </div>
     </section>
 
