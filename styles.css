@@ -231,6 +231,11 @@ ion-icon {
   cursor: pointer;
 }
 
+#stats-exit-button {
+  padding-left: 95%;
+  cursor: pointer;
+}
+
 .how-modal {
   color: white;
   /*background-color: #2b2a2a;*/
@@ -246,4 +251,14 @@ ion-icon {
 }
 .how-modal h1 {
   text-align: center;
+}
+
+.flex-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.stat-items {
+  padding: 2rem;
 }

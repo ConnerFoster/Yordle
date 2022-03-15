@@ -15269,20 +15269,13 @@ const modalContent = document.getElementById("my-modal");
 const warningDiv = document.getElementById("warning");
 const warningText = document.getElementById("warning-text");
 const howPlayBtn = document.getElementById("quest");
+const statsModal = document.getElementById("stats");
 let targetWord = getRandomWord();
 let row = 0;
 let char;
 let currentRow = 0;
 let modalActive = false;
 const confetti = window.confetti;
-
-/* Still to do:
-Make Modal look better
-make play again not just reload page, be able to keep track of wins - losses
-add how to play modal
-maybe modal transition
-focus modal 
-*/
 
 function input(value) {
   if (word.length < 5) {
@@ -15407,6 +15400,14 @@ howPlayBtn.addEventListener("click", () => {
 
 document.getElementById("how-exit-button").addEventListener("click", () => {
   document.getElementById("how-to-play").style.display = "none";
+});
+
+document.getElementById("stat-btn").addEventListener("click", () => {
+  statsModal.style.display = "flex";
+});
+
+document.getElementById("stats-exit-button").addEventListener("click", () => {
+  statsModal.style.display = "none";
 });
 
 function giveWarning(text) {
