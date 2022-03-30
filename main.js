@@ -15276,6 +15276,20 @@ let char;
 let currentRow = 0;
 let modalActive = false;
 const confetti = window.confetti;
+let wins = 0,
+  losses = 0,
+  streak = 0;
+
+function newGame() {
+  word = "";
+  currentSquare = 0;
+  row = 0;
+  currentRow = 0;
+  modalActive = false;
+  //reset keys to default
+
+  //reset tiles to default
+}
 
 function input(value) {
   if (word.length < 5) {
@@ -15311,6 +15325,8 @@ function ent() {
 
 function wordCheck() {
   if (word == targetWord) {
+    wins++;
+    streak++;
     for (let i = 0; i < 5; i++) {
       tiles[row + i].classList.add("green");
       confetti();
@@ -15338,6 +15354,8 @@ function wordCheck() {
     currentRow++;
   }
   if (row == 30) {
+    losses++;
+    streak = 0;
     console.log("The Word was : " + targetWord);
     document.getElementById("modal-main-text").textContent = "You Lost!🙁";
     document.getElementById("modal-secondary-text").textContent =
@@ -15402,7 +15420,14 @@ document.getElementById("how-exit-button").addEventListener("click", () => {
   document.getElementById("how-to-play").style.display = "none";
 });
 
+const winDisplay = document.getElementById("wins");
+const lossDisplay = document.getElementById("losses");
+const streakDisplay = document.getElementById("streak");
+
 document.getElementById("stat-btn").addEventListener("click", () => {
+  winDisplay.textContent = wins.toString();
+  lossDisplay.textContent = losses.toString();
+  streakDisplay.textContent = streak.toString();
   statsModal.style.display = "flex";
 });
 
