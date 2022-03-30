@@ -15280,17 +15280,6 @@ let wins = 0,
   losses = 0,
   streak = 0;
 
-function newGame() {
-  word = "";
-  currentSquare = 0;
-  row = 0;
-  currentRow = 0;
-  modalActive = false;
-  //reset keys to default
-
-  //reset tiles to default
-}
-
 function input(value) {
   if (word.length < 5) {
     word += value;
@@ -15386,10 +15375,6 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-function gameOver(result) {
-  return null;
-}
-
 function updateKeyboardColors(letter, color) {
   for (let i = 0; i < 28; i++) {
     if (keys[i].dataset.value == letter) {
@@ -15409,7 +15394,8 @@ document.getElementById("close-main-modal").addEventListener("click", () => {
 });
 
 document.getElementById("play-again").addEventListener("click", () => {
-  location.reload();
+  //location.reload();
+  newGame();
 });
 
 howPlayBtn.addEventListener("click", () => {
@@ -15444,5 +15430,29 @@ function giveWarning(text) {
     warningDiv.classList.remove("fadeInAndOut");
   }, 2000);
 }
+
+function newGame() {
+    word = "";
+    currentSquare = 0;
+    row = 0;
+    currentRow = 0;
+    modalActive = false;
+    //reset keys to default
+    for (let i = 0; i < 28; i++) {
+      keys[i].classList.remove('yellow');
+      keys[i].classList.remove('green');
+      keys[i].classList.remove('gray');
+    }
+    //reset tiles to default
+    for (let i = 0; i < 30; i++) {
+      tiles[i].classList.remove('yellow');
+      tiles[i].classList.remove('green');
+      tiles[i].classList.remove('gray');
+      tiles[i].textContent = "";
+    }
+    modal.style.display = "none";
+    targetWord = getRandomWord();
+    console.log(targetWord);
+  }
 
 console.log(targetWord);
