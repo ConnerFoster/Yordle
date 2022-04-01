@@ -15280,6 +15280,7 @@ let wins = 0,
   losses = 0,
   streak = 0;
 
+//This function handles input. It also makes sure our word length does not pass 5 and keeps track of what square/tile we are currently at.
 function input(value) {
   if (word.length < 5) {
     word += value;
@@ -15291,6 +15292,7 @@ function input(value) {
   console.log(word);
 }
 
+//Simple delete function. Deletes letter from word, goes back a square, makes sure we don't go back to a previous row, and sets text content back to nothing.
 function del() {
   word = word.slice(0, -1);
   currentSquare--;
@@ -15300,6 +15302,7 @@ function del() {
   tiles[currentSquare].textContent = "";
 }
 
+//This function error checks when "Enter" is pressed.
 function ent() {
   if (word.length < 5) {
     //alert("Too short a word");
@@ -15312,6 +15315,7 @@ function ent() {
   }
 }
 
+//This function handles functionality of checking the entered word to see if it is correct or partially correct. It also updates colors of tiles and keys.
 function wordCheck() {
   if (word == targetWord) {
     wins++;
@@ -15357,12 +15361,14 @@ function wordCheck() {
   }
 }
 
+//Simple function to pick a random word from list.
 function getRandomWord() {
   return targetWordList[
     Math.floor(Math.random() * targetWordList.length)
   ].toUpperCase();
 }
 
+//Adds keyboard functionality
 document.addEventListener("keydown", (e) => {
   char = e.key;
   console.log(char);
@@ -15378,6 +15384,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+//Function to update the color of one of the on-screen keys given the letter and color.
 function updateKeyboardColors(letter, color) {
   for (let i = 0; i < 28; i++) {
     if (keys[i].dataset.value == letter) {
@@ -15392,6 +15399,7 @@ function updateKeyboardColors(letter, color) {
   }
 }
 
+//This section of code is essentially just handling modal functionality.
 document.getElementById("close-main-modal").addEventListener("click", () => {
   modal.style.display = "none";
 });
@@ -15424,6 +15432,7 @@ document.getElementById("stats-exit-button").addEventListener("click", () => {
   statsModal.style.display = "none";
 });
 
+//Function to give an on-screen warning, in this case either because the word is too short or because it is not in our wordlist.
 function giveWarning(text) {
   warningText.textContent = text;
   warningDiv.classList.remove("invisible");
@@ -15434,6 +15443,7 @@ function giveWarning(text) {
   }, 2000);
 }
 
+//Reset everything to default except our stats and start a new round.
 function newGame() {
   word = "";
   currentSquare = 0;
