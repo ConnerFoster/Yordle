@@ -15321,6 +15321,8 @@ function wordCheck() {
       confetti();
     }
     setTimeout(function () {
+      document.getElementById("modal-main-text").textContent = "You Won! 🎉";
+      document.getElementById("modal-secondary-text").textContent = "";
       modal.style.display = "flex";
       modalContent.style.height = "15rem";
       modalActive = true;
@@ -15349,6 +15351,7 @@ function wordCheck() {
     document.getElementById("modal-main-text").textContent = "You Lost!🙁";
     document.getElementById("modal-secondary-text").textContent =
       "The word was: " + targetWord;
+    modalContent.style.height = "20rem";
     modal.style.display = "flex";
     modalActive = true;
   }
@@ -15432,27 +15435,27 @@ function giveWarning(text) {
 }
 
 function newGame() {
-    word = "";
-    currentSquare = 0;
-    row = 0;
-    currentRow = 0;
-    modalActive = false;
-    //reset keys to default
-    for (let i = 0; i < 28; i++) {
-      keys[i].classList.remove('yellow');
-      keys[i].classList.remove('green');
-      keys[i].classList.remove('gray');
-    }
-    //reset tiles to default
-    for (let i = 0; i < 30; i++) {
-      tiles[i].classList.remove('yellow');
-      tiles[i].classList.remove('green');
-      tiles[i].classList.remove('gray');
-      tiles[i].textContent = "";
-    }
-    modal.style.display = "none";
-    targetWord = getRandomWord();
-    console.log(targetWord);
+  word = "";
+  currentSquare = 0;
+  row = 0;
+  currentRow = 0;
+  modalActive = false;
+  //reset keys to default
+  for (let i = 0; i < 28; i++) {
+    keys[i].classList.remove("yellow");
+    keys[i].classList.remove("green");
+    keys[i].classList.remove("gray");
   }
+  //reset tiles to default
+  for (let i = 0; i < 30; i++) {
+    tiles[i].classList.remove("yellow");
+    tiles[i].classList.remove("green");
+    tiles[i].classList.remove("gray");
+    tiles[i].textContent = "";
+  }
+  modal.style.display = "none";
+  targetWord = getRandomWord();
+  console.log(targetWord);
+}
 
 console.log(targetWord);
