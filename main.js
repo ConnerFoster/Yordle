@@ -15402,6 +15402,7 @@ function updateKeyboardColors(letter, color) {
 //This section of code is essentially just handling modal functionality.
 document.getElementById("close-main-modal").addEventListener("click", () => {
   modal.style.display = "none";
+  modalActive = false;
 });
 
 document.getElementById("play-again").addEventListener("click", () => {
@@ -15411,10 +15412,12 @@ document.getElementById("play-again").addEventListener("click", () => {
 
 howPlayBtn.addEventListener("click", () => {
   document.getElementById("how-to-play").style.display = "flex";
+  modalActive = true;
 });
 
 document.getElementById("how-exit-button").addEventListener("click", () => {
   document.getElementById("how-to-play").style.display = "none";
+  modalActive = false;
 });
 
 const winDisplay = document.getElementById("wins");
@@ -15426,10 +15429,12 @@ document.getElementById("stat-btn").addEventListener("click", () => {
   lossDisplay.textContent = losses.toString();
   streakDisplay.textContent = streak.toString();
   statsModal.style.display = "flex";
+  modalActive = true;
 });
 
 document.getElementById("stats-exit-button").addEventListener("click", () => {
   statsModal.style.display = "none";
+  modalActive = false;
 });
 
 //Function to give an on-screen warning, in this case either because the word is too short or because it is not in our wordlist.
