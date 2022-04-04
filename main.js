@@ -15275,6 +15275,7 @@ let row = 0;
 let char;
 let currentRow = 0;
 let modalActive = false;
+let gameOver = false;
 const confetti = window.confetti;
 let wins = 0,
   losses = 0,
@@ -15331,6 +15332,8 @@ function wordCheck() {
       modalContent.style.height = "15rem";
       modalActive = true;
     }, 1000);
+    word = "";
+    gameOver = true;
   } else {
     for (let i = 0; i < 5; i++) {
       if (word[i] == targetWord[i]) {
@@ -15358,6 +15361,7 @@ function wordCheck() {
     modalContent.style.height = "20rem";
     modal.style.display = "flex";
     modalActive = true;
+    gameOver = true;
   }
 }
 
@@ -15439,6 +15443,9 @@ document.getElementById("stats-exit-button").addEventListener("click", () => {
 
 //Function to give an on-screen warning, in this case either because the word is too short or because it is not in our wordlist.
 function giveWarning(text) {
+  if (gameOver == true) {
+    return;
+  }
   warningText.textContent = text;
   warningDiv.classList.remove("invisible");
   warningDiv.classList.add("fadeInAndOut");
@@ -15469,10 +15476,12 @@ function newGame() {
     tiles[i].textContent = "";
   }
   modal.style.display = "none";
+  gameOver = false;
   targetWord = getRandomWord();
   console.log(targetWord);
 }
 
+//Function to make modals close when user clicks outside
 document.addEventListener("click", (e) => {
   console.log(e.target);
   if (modalActive == true && e.target.matches(".modal-container")) {
@@ -15484,6 +15493,3 @@ document.addEventListener("click", (e) => {
 });
 
 console.log(targetWord);
-
-//Still to fix:
-//when user wins, they can keep pressing enter for more wins and confetti
