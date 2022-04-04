@@ -15473,4 +15473,17 @@ function newGame() {
   console.log(targetWord);
 }
 
+document.addEventListener("click", (e) => {
+  console.log(e.target);
+  if (modalActive == true && e.target.matches(".modal-container")) {
+    statsModal.style.display = "none";
+    document.getElementById("how-to-play").style.display = "none";
+    modal.style.display = "none";
+    modalActive = false;
+  }
+});
+
 console.log(targetWord);
+
+//Still to fix:
+//when user wins, they can keep pressing enter for more wins and confetti
